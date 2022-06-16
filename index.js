@@ -1,25 +1,40 @@
 import express from "express";
-const app = express()
-// app.use(cors())
+import cors from "cors";
 
-const users = []
+const server = express()
+server.use(cors())
+server.use(express.json())
 
-const tweets = []
+const usersList = []
 
-app.post('/sign-up', (request, response) => {
+const tweetsList = []
+
+server.post('/sign-up', (request, response) => {
     const user = {
-        
+      username: request.body.username,
+      avatar: request.body.avatar  
     }
 
-    response.send('oi')
+    usersList.push(user)
+
+    response.send(request.body)
 })
 
-app.get('/tweets', (request, response) => {
-    response.send('oi')
+server.get('/tweets', (request, response) => {
+    response.send(tweetsList)
 })
 
-app.post('/tweets', (request, response) => {
+server.post('/tweets', (request, response) => {
     
+    // To do: adicionar um find no array usersList
+    // para procurar o avatar do usuário atrelado
+    // e então salvar no array assim:
+
+    // { username: "", avatar: "", tweet: ""}
+    // colocar para enviar ali em cima
+
+    console.log(request.body)
+    response.send('oi')
 })
 
-app.listen(5000);
+server.listen(5000);
