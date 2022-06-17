@@ -21,19 +21,40 @@ server.post('/sign-up', (request, response) => {
 })
 
 server.get('/tweets', (request, response) => {
-    response.send(tweetsList)
+    response.send(getLastTenTweets())
 })
 
+function getLastTenTweets() {
+    const lastTenTweets = [];
+
+    for(let i = 0; i < 10; i++) {
+        if(i === tweetsList.length) break;
+        lastTenTweets.push(setTweet(i))
+    }
+
+    return lastTenTweets;
+}
+
+function setTweet(index) {
+    const user = usersList.find(user => user.username === tweetsList[index].username);
+
+    const tweet = {
+        username: user.username,
+        avatar: user.avatar,
+        tweet: tweetsList[index].tweet
+    };
+
+    return(tweet)
+}
+
 server.post('/tweets', (request, response) => {
+        
+    const tweet = {
+        username: request.body.username,
+        tweet: request.body.tweet
+    }
     
-    // To do: adicionar um find no array usersList
-    // para procurar o avatar do usuário atrelado
-    // e então salvar no array assim:
-
-    // { username: "", avatar: "", tweet: ""}
-    // colocar para enviar ali em cima
-
-    console.log(request.body)
+    tweetsList.unshift(tweet)
     response.send('oi')
 })
 
