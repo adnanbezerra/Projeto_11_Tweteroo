@@ -1,6 +1,10 @@
-import { createNewUser } from '../repositories/user-repository';
+import { UserRepository } from '../repositories/user-repository';
 import { NewUser } from '../types/new-user-types';
 
-export async function signupService(newUser: NewUser) {
-  await createNewUser(newUser);
+async function signupService(newUser: NewUser) {
+  await UserRepository.createNewUser(newUser);
 };
+
+export const UserServices = {
+  signupService,
+}
