@@ -15,3 +15,9 @@ model Users {
   username String
   avatar   String
 }
+
+model Tweets {
+  id Int @id @default(autoincrement())
+  username String
+  tweet String
+}
