@@ -5,7 +5,7 @@ import cors from 'cors';
 import errorHandler from './middlewares/ErrorHandler';
 import { UserRouter } from './routes/user-routes';
 import { TweetRouter } from './routes/tweets-routes';
-dotenv.config()
+dotenv.config();
 
 const server = express();
 server.use(cors());

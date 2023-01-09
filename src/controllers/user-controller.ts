@@ -8,4 +8,4 @@ export async function postSignUp(req: Request, res: Response) {
   await UserServices.signupService(newUserInfo);
 
   res.sendStatus(201);
-};
+}

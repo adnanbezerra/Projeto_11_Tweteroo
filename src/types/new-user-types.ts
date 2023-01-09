@@ -1,4 +1,4 @@
 export type NewUser = {
-  username: string
-  avatar: string
+  username: string;
+  avatar: string;
 };

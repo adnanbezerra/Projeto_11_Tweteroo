@@ -7,4 +7,4 @@ async function createNewUser(newUserInfo: NewUser) {
 
 export const UserRepository = {
   createNewUser,
-}
+};

@@ -8,4 +8,4 @@ export async function postNewTweet(req: Request, res: Response) {
   await TweetsServices.postNewTweet(newTweetContent);
 
   res.sendStatus(201);
-};
+}

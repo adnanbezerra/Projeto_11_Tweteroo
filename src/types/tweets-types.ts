@@ -1,4 +1,4 @@
 export type NewTweet = {
-  username: string
-  tweet: string
+  username: string;
+  tweet: string;
 };
