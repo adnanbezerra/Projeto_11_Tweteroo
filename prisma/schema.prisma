@@ -20,4 +20,5 @@ model Tweets {
   id Int @id @default(autoincrement())
   username String
   tweet String
+  avatar String
 }
