@@ -20,7 +20,16 @@ async function getTweets() {
   return tweets;
 }
 
+async function getTweetsByUsername(username: string) {
+  return prisma.tweets.findMany({
+    where: {
+      username,
+    },
+  });
+}
+
 export const TweetsRepository = {
   postNewTweet,
   getTweets,
+  getTweetsByUsername,
 };

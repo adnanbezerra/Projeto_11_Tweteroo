@@ -9,7 +9,12 @@ async function getTweets() {
   return await TweetsRepository.getTweets();
 }
 
+async function getTweetsByUsername(username: string) {
+  return await TweetsRepository.getTweetsByUsername(username);
+}
+
 export const TweetsServices = {
   postNewTweet,
   getTweets,
+  getTweetsByUsername,
 };

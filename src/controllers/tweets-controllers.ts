@@ -15,3 +15,11 @@ export async function getTweets(req: Request, res: Response) {
 
   res.send(tweets).status(200);
 }
+
+export async function getTweetsByUsername(req: Request, res: Response) {
+  const { username } = req.params;
+
+  const tweets = await TweetsServices.getTweetsByUsername(username);
+
+  res.send(tweets).status(200);
+}
