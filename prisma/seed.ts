@@ -1,14 +1,12 @@
-import { client } from "../src/database/prisma";
+import { prisma } from '../src/database/prisma';
 
-async function main() {
-    
-}
+async function main() {}
 
 main()
-.catch(e => {
+  .catch((e) => {
     console.error(e);
     process.exit(1);
-})
-.finally(() => {
-    client.$disconnect();
-})
+  })
+  .finally(() => {
+    prisma.$disconnect();
+  });
