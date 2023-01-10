@@ -9,3 +9,9 @@ export async function postNewTweet(req: Request, res: Response) {
 
   res.sendStatus(201);
 }
+
+export async function getTweets(req: Request, res: Response) {
+  const tweets = await TweetsServices.getTweets();
+
+  res.send(tweets).status(200);
+}
