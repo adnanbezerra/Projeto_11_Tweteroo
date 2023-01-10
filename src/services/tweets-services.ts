@@ -5,8 +5,8 @@ async function postNewTweet(newTweetContent: NewTweet) {
   await TweetsRepository.postNewTweet(newTweetContent);
 }
 
-async function getTweets() {
-  return await TweetsRepository.getTweets();
+async function getTweets(page: number) {
+  return await TweetsRepository.getTweets(page);
 }
 
 async function getTweetsByUsername(username: string) {

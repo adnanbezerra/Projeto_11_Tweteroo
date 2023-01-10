@@ -11,7 +11,9 @@ export async function postNewTweet(req: Request, res: Response) {
 }
 
 export async function getTweets(req: Request, res: Response) {
-  const tweets = await TweetsServices.getTweets();
+  const { page } = req.query;
+
+  const tweets = await TweetsServices.getTweets(+page);
 
   res.send(tweets).status(200);
 }

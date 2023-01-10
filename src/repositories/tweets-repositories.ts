@@ -9,9 +9,11 @@ async function postNewTweet(newTweetContent: NewTweet) {
   return await prisma.tweets.create({ data: { ...newTweetContent, avatar } });
 }
 
-async function getTweets() {
+async function getTweets(page: number) {
+  const taking = 10 * page;
+
   const tweets = await prisma.tweets.findMany({
-    take: 10,
+    take: taking,
     orderBy: {
       id: 'desc',
     },
